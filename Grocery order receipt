@@ -1,0 +1,26 @@
+import pandas as pd
+import numpy as np
+data = {
+    "Item": ["Banana", "Cheese", "Soap"],
+    "Price": [10.0, 45.0, 20.0],
+    "Quantity": [5, 1, 2]
+}
+discount_rate = 10
+tax_rate = 5
+df = pd.DataFrame(data)
+
+df["Subtotal"] = df["Price"] * df["Quantity"]
+
+total_before = df["Subtotal"].sum()
+discount = total_before * (discount_rate / 100)
+after_discount = total_before - discount
+tax = after_discount * (tax_rate / 100)
+final_total = after_discount + tax
+
+
+print("\n Receipt:")
+print(df)
+print(f"\nTotal before discount: ₹{total_before:.2f}")
+print(f"Discount ({discount_rate}%): -₹{discount:.2f}")
+print(f"Tax ({tax_rate}%): +₹{tax:.2f}")
+print(f"Final Total: ₹{final_total:.2f}")
