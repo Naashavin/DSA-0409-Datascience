@@ -1,6 +1,5 @@
 import pandas as pd
 
-# Sample property data
 property_data = pd.DataFrame({
     'property_id': [1, 2, 3, 4, 5],
     'location': ['Chennai', 'Chennai', 'Bangalore', 'Bangalore', 'Hyderabad'],
@@ -9,13 +8,10 @@ property_data = pd.DataFrame({
     'listing_price': [7500000, 12500000, 9500000, 14500000, 5000000]
 })
 
-# 1. Average price per location
 avg_price_by_location = property_data.groupby('location')['listing_price'].mean()
 
-# 2. Number of properties with more than 4 bedrooms
 more_than_4_beds = (property_data['bedrooms'] > 4).sum()
 
-# 3. Property with the largest area
 largest_area_property = property_data.loc[property_data['area_sqft'].idxmax()]
 
 print("Average Listing Price by Location:\n", avg_price_by_location)
