@@ -1,0 +1,12 @@
+np.random.seed(0)
+drug_group = np.random.normal(loc=10, scale=2.5, size=25)
+placebo_group = np.random.normal(loc=5, scale=2.0, size=25)
+
+drug_mean = np.mean(drug_group)
+drug_ci = stats.t.interval(0.95, len(drug_group)-1, loc=drug_mean, scale=stats.sem(drug_group))
+
+placebo_mean = np.mean(placebo_group)
+placebo_ci = stats.t.interval(0.95, len(placebo_group)-1, loc=placebo_mean, scale=stats.sem(placebo_group))
+
+print("\n95% Confidence Interval for Drug Group:", np.round(drug_ci, 2))
+print("95% Confidence Interval for Placebo Group:", np.round(placebo_ci, 2))
