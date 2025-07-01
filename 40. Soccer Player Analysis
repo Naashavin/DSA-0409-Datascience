@@ -1,0 +1,15 @@
+player_data = pd.DataFrame({
+    'name': ['A', 'B', 'C', 'D', 'E'],
+    'age': [24, 30, 28, 22, 35],
+    'position': ['FW', 'MF', 'DF', 'GK', 'FW'],
+    'goals': [10, 5, 2, 0, 12],
+    'salary': [50000, 60000, 45000, 40000, 70000]
+})
+avg_age = player_data['age'].mean()
+top_goals = player_data.sort_values(by='goals', ascending=False).head(5)
+top_salary = player_data.sort_values(by='salary', ascending=False).head(5)
+above_avg = player_data[player_data['age'] > avg_age]['name']
+print("Top Goal Scorers:\n", top_goals[['name', 'goals']])
+print("Top Salaries:\n", top_salary[['name', 'salary']])
+print("Players Above Average Age:", above_avg.tolist())
+player_data['position'].value_counts().plot(kind='bar', title='Player Position Distribution')
