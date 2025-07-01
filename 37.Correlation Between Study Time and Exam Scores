@@ -1,0 +1,6 @@
+study_data = pd.DataFrame({
+    'study_hours': [2, 3, 4, 5, 6],
+    'score': [60, 65, 70, 75, 80]
+})
+correlation = study_data.corr().iloc[0,1]
+print("Correlation:", correlation)
