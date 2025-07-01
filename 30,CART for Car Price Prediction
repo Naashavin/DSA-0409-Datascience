@@ -1,0 +1,18 @@
+from sklearn.tree import DecisionTreeRegressor, export_text
+car_data = pd.DataFrame({
+    'mileage': [50000, 30000, 70000, 25000, 40000],
+    'age': [5, 3, 7, 2, 4],
+    'brand': [1, 2, 1, 3, 2],
+    'engine': [2.0, 2.5, 1.8, 3.0, 2.2],
+    'price': [200000, 300000, 150000, 350000, 250000]
+})
+
+X = car_data[['mileage', 'age', 'brand', 'engine']]
+y = car_data['price']
+cart = DecisionTreeRegressor()
+cart.fit(X, y)
+
+sample = [int(x) for x in input("Enter mileage, age, brand, engine: ").split()]
+pred_price = cart.predict([sample])[0]
+print("Predicted Price:", pred_price)
+print(export_text(cart, feature_names=list(X.columns)))
