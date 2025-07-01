@@ -1,0 +1,4 @@
+transactions = np.array([[100, 5], [200, 8], [150, 6], [300, 10]])
+model = KMeans(n_clusters=2)
+labels = model.fit_predict(transactions)
+print("Cluster Labels:", labels)
