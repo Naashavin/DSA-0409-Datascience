@@ -1,0 +1,14 @@
+temp_data = pd.DataFrame({
+    'CityA': [30, 32, 31, 29, 33],
+    'CityB': [25, 26, 24, 27, 26],
+    'CityC': [20, 22, 21, 23, 24]
+})
+means = temp_data.mean()
+stds = temp_data.std()
+ranges = temp_data.max() - temp_data.min()
+most_consistent = stds.idxmin()
+highest_range = ranges.idxmax()
+print("Mean Temps:", means)
+print("Std Dev:", stds)
+print("City with Highest Temp Range:", highest_range)
+print("Most Consistent City:", most_consistent)
