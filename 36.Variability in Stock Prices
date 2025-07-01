@@ -1,0 +1,5 @@
+stock_data = pd.DataFrame({
+    'closing_price': [100, 102, 98, 101, 99, 97, 103]
+})
+std_dev = stock_data['closing_price'].std()
+print("Stock price variability (std dev):", std_dev)
