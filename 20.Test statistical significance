@@ -1,0 +1,10 @@
+A = np.random.normal(loc=0.08, scale=0.02, size=100)
+B = np.random.normal(loc=0.10, scale=0.015, size=100)
+t_stat, p_val = stats.ttest_ind(B, A)
+print("\nA/B Test - T-statistic:", round(t_stat, 3))
+print("P-value:", round(p_val, 4))
+
+if p_val < 0.05:
+    print("Conclusion: Statistically significant difference in conversion rates.")
+else:
+    print("Conclusion: No statistically significant difference.")
