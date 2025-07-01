@@ -1,0 +1,10 @@
+car_features = pd.DataFrame({
+    'engine_size': [1.5, 2.0, 2.5, 3.0],
+    'horsepower': [100, 150, 200, 250],
+    'fuel_efficiency': [30, 25, 20, 15],
+    'price': [10000, 15000, 20000, 25000]
+})
+X = car_features[['engine_size', 'horsepower', 'fuel_efficiency']]
+y = car_features['price']
+model = LinearRegression().fit(X, y)
+print("Coefficients:", model.coef_)
